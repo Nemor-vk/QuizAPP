@@ -8,11 +8,12 @@ const option2 = document.querySelector("#optionB");
 const option3 = document.querySelector("#optionC");
 const option4 = document.querySelector("#optionD");
 
-const submit = document.querySelector(".btn");
+const submit = document.querySelector(".submitBtn");
 const optionSelected = document.getElementsByName("options");
 
 
 let score = 0;
+let questionNumberText = 1;
 
 // total score & no: of questions
 let noOfQuestion = questionDB.length;
@@ -20,16 +21,18 @@ export function getTotalQuestion() { return noOfQuestion; };
 let totalScore = 100;
 
 //score increments by - score incrementor
-const scoreIncrement = totalScore / noOfQuestion;
+// const scoreIncrement = totalScore / noOfQuestion;
+const scoreIncrement = totalScore / 10;
 
 // load question definition
 export function loadquestion(count) {
 
-    ques.innerHTML = questionDB[count].question;
+    ques.innerHTML = `Q.${questionNumberText} ` + questionDB[count].question;
     option1.innerHTML = questionDB[count].a;
     option2.innerHTML = questionDB[count].b;
     option3.innerHTML = questionDB[count].c;
     option4.innerHTML = questionDB[count].d;
+    questionNumberText++; //only used to assign dynamic question number
 
 }
 

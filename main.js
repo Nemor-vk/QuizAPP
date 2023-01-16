@@ -1,31 +1,46 @@
 import { getScore, getTotalQuestion, isAnsRight, loadquestion } from "./loadquestion.js";
+import { getSuffledQuesList } from "./randomizeQuestion.js";
 
 
-const submit = document.querySelector(".btn");
+
+const submit = document.querySelector(".submitBtn");
 let totalScore = 100;
 
 let count = 0;
+const TOTAL_QUES = 10;
 let TIMER_COUNT_DOWN = 15;
 let setInterval_ID;
 
-loadquestion(count);
-startTimer();
+let quesNum_List = getSuffledQuesList(); // random question num list - queue
+console.log(quesNum_List[count]);
+
+const startGameBtn = document.querySelector('#startQuiz');
+startGameBtn.addEventListener('click', () => {
+    const QuizPgBOX = document.querySelectorAll('.box');
+    QuizPgBOX[1].classList.add("hide");
+    QuizPgBOX[0].classList.remove("hide");
+
+    loadquestion(quesNum_List[count]); // load first question
+    startTimer(); //starts timer
+})
+
+// loadquestion(quesNum_List[count]);
+// startTimer();
 
 
 submit.addEventListener('click', () => {
 
     resetTimer();
     submit.style.display = "none";
-    // console.log(`Checking is ans is right for count : ${count}` );
-    isAnsRight(count); // checks if the ans is right
+    isAnsRight(quesNum_List[count]); // checks if the ans is right
 
     count++;
 
-    if (count < getTotalQuestion()) {
+    if (count < TOTAL_QUES) {
 
-        // count++;
         setTimeout(() => {
-            loadquestion(count);
+
+            loadquestion(quesNum_List[count]);
             submit.style.display = "block";
         }, 1400);
         deSelectAll();
@@ -64,21 +79,21 @@ const timerSelector = document.querySelector('.timer');
 
 function startTimer() {
     setInterval_ID = setInterval(() => {
-    
+
         TIMER_COUNT_DOWN--;
         timerSelector.textContent = `${TIMER_COUNT_DOWN}`;
-    
+
         if (TIMER_COUNT_DOWN == 0) {
             submit.click();
             TIMER_COUNT_DOWN = 15;
         }
-    
+
     }, 1000);
 }
 
 // Reset timer
 
-function resetTimer () {
+function resetTimer() {
 
     clearInterval(setInterval_ID);
     TIMER_COUNT_DOWN = 15;

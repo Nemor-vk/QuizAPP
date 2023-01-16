@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="main">
-        <div class="box">
+        <div class="box hide" id="mainQuizBox">
             <div class="header">Vivek Quiz App <div class="timer-text">Timer<span class="timer">15</span></div></div>
             <h2 class="question" id="ques"> Placeholder for Sample Question?</h2>
             <!-- <div class="answers">  -->
@@ -32,10 +32,27 @@
                 <label for="D" id="optionD">Sample Option D</label>
             <!-- </div> -->
 
-            <button class="btn">Submit</button>
+            <button class="btn submitBtn">Submit</button>
             <div class="showScore">Sample text is here</div>
         </div>
+        
+        <!-- First Page - GAME PAGE (start game?) -->
+        <div class="box" id="firstPage">
+            <div class="header">Vivek Quiz App <div class="timer-text">Timer<span class="timer">15</span></div></div>
+            <div class="info">
+                <div class="info-head">Instructions</div>
+                <ul>
+                    <li class="info-list-item">There will be 10 MCQs with 4 options</li>
+                    <li class="info-list-item">You will have 15 Seconds to answer each Question</li>
+                    <li class="info-list-item">Score will be shown at end of Quiz</li>
+                    <li class="info-list-item">Yellow will be displayed when answer is correct</li>
+                    <li class="info-list-item">Black is displayed when answer is wrong</li>
+                </ul>
+            </div>
+            <button class="btn" id="startQuiz">Start Quiz</button>
+        </div>
     </div>
+
     <script src="main.js" type="module"></script>
 </body>
 </html>
