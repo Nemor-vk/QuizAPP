@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --main-bg-color: #3b5cff;
+    --box-color: white;
+    --quiz-header-color: #3b5cff;
+    --quiz-header-Bg-color: var(--box-color);
+    --question-color: #47238d;
+    --label-bg-color:#c490ff;
+    --label-text-color:white;
+    --label-font-weight: 650;
+
+    --btn-color: #47238d;
+    --btn-color-onHover: #c490ff;
+    --intro-text-color:black;
+
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0px 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: var(--main-bg-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Game - page - first Page CSS */
+
+.info-head {
+    font-weight: 700;
+    font-size: 4.5vmin;
+    padding: 2vmin 0vmin 0 2.5vmin;
+    border-bottom: 4px solid black;
+    color: var(--question-color);
+}
+
+.info-list-item {
+    list-style: inside;
+    font-weight: 500;
+    font-size: 2.6vmin;
+}
+
+ul {
+    margin: 4vw 0;
+    padding-right: 2vw;
+    padding-left: 2.8vw;
+}
+
+ul li {
+    margin-bottom: 2.2vmin;
+    color: var(--intro-text-color);
+}
+
+/*  Quiz App  >>>> css below*/
+
+.box {
+    background-color: var(--box-color);
+    border-radius: 22px;
+    padding: 0rem 0rem 4vw 0rem;
+    width: 80vw;
+    transform: scale(0.9);
+
+    /* shadow */
+    box-shadow: 5px 2px 15px rgb(40 20 149 / 71%);
+    outline-style: none;
+    border-style: none;
+}
+
+h2 {
+    text-align: center;
+    margin: 4vw 0;
+    font-size: 38px;
+    padding: 0 4vw;
+    color: var(--question-color);
+}
+
+
+.btn {
+    background-color: var(--btn-color);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vmin;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 2.4vmin;
+    border: none;
+    outline-style: none;
+    margin-top: 5.5vw;
+    cursor: pointer;
+    width: 17vmin;
+    transform: scale(1.2);
+    transition: all 0.4s;
+}
+
+.showScore {
+    background-color: #48f96e;
+    height: 6rem;
+    margin: 1rem auto 0px auto;
+    display: none;
+    align-items: center;
+    border-radius: 4px;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    font-weight: 600;
+    margin: 0 2.5vw;
+}
+
+
+.playagain {
+    margin-top: 1rem;
+    display: flex;
+    background-color: #C780FA;
+    height: 35px;
+    width: 96px;
+    border-radius: 2px;
+    color: white;
+    border-style: none;
+    outline-style: none;
+    padding: 0px 4px;
+
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
+input[type="radio"] {
+
+    display: none;
+    background-color: #C780FA;
+}
+
+div label {
+    color: var(--label-text-color);
+    font-weight: var(--label-font-weight);
+    border-radius: 50px;
+    cursor: pointer;
+    max-width: 42vw;
+    padding: 2vh 0rem 2vh 4vw;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    background-color: var(--label-bg-color);
+    min-width: 85%;
+    box-sizing: border-box;
+    font-size: 1.5vmax;
+
+}
+
+input[type="radio"]:checked+label {
+    background-color: rgb(201, 0, 0);
+    transform: scale(1.025);
+}
+
+.btn:hover {
+    background-color: var(--btn-color-onHover);
+    transform: scale(1);
+}
+
+.btn:active {
+    background-color: #0dff00;
+    color: black;
+}
+
+.rightc {
+    background-color: yellow;
+    transform: scale(1.025);
+}
+
+.wrongc {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 4px solid white;
+}
+
+/* header styling */
+.header {
+    height: 10vh;
+    box-sizing: border-box;
+    padding: 1vmin 2.5vmin 1vmin 4vmin;
+    background-color: var(--quiz-header-Bg-color);
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-radius: 22px 22px 0px 0px;
+    font-weight: 800;
+    font-size: 4vmin;
+    color: var(--quiz-header-color);
+
+    box-shadow: 0px 2.5px 4px 0.5px rgb(0 0 0 / 25%);
+}
+
+@media (max-width:1000px) {
+    h2{
+        text-align: center;
+        margin-top: 4vw;
+        font-size: 3vmax;
+        padding: 0 4vw;
+    }  
+    
+    .box{
+        transform: scale(1);
+    }
+
+    .info-list-item {
+        
+        font-size: 2vmin;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .header {
+        height: 7.6vh;
+        border-radius: 12px 12px 0px 0px;
+    }
+
+    .box {
+        border-radius: 12px;
+    }
+
+    .btn {
+        width: 12vmax;
+        font-size: 1.7vmax;
+        height: 7vmin;
+    }
+
+    ul li {
+        margin-bottom: 1.7vw;
+    }
+
+    h2 {
+        font-size: 3.4vw;
+    }
+
+    div label {
+        padding: 2vw 4vw;
+        font-size: 2.5vw;
+        margin: 2.8vw auto;
+    }
+}
+
+@media(max-width:400px) {
+
+    .header {
+        padding: 1vmin 3.5vmin 1vmin 4vmin;
+        font-size: 11px;
+        height: 6vh;
+        border-radius: 12px 12px 0px 0px;
+    }
+
+    .box {
+        border-radius: 12px;
+    }
+
+    .btn {
+        width: 22vmin;
+        font-size: 3vmin;
+        height: 7vmin;
+    }
+
+    h2 {
+        font-size: 3.2vw;
+    }
+
+    .showScore {
+        font-size: 14px;
+        height: 4.6rem;
+    }
+
+    .playagain {
+        margin-top: 4px;
+        transform: scale(0.8);
+    }
+
+}
+
+@media(max-width:270px) {
+
+    .header {
+        padding: 1vmin 4vmin 1vmin 4vmin;
+        font-size: 8px;
+        height: 4vh;
+        border-radius: 9px 9px 0px 0px;
+    }
+
+    .box {
+        border-radius: 9px;
+    }
+
+    .btn {
+        width: 20vmin;
+        font-size: 2.8vmin;
+        height: 6vmin;
+    }
+
+    .showScore {
+        font-size: 10.5px;
+        height: 3.5rem;
+        padding-top: 10px;
+    }
+
+    .playagain {
+        margin-top: 1px;
+        transform: scale(0.6);
+    }
+
+}
+
+@media (max-width:199px) {
+    .btn{
+        font-size: 2.4vmin;
+        width: 22vw;
+    }
+}
+
+
+.timer-text {
+    padding: 0vmin 0vmin 0vmin 1.5vmin;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px 2px rgb(142 150 111 / 37%);
+    outline-style: none;
+    border-style: none;
+    height: 5vmin;
+    width: 18vmin;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 2.5vmin;
+    color: #000000;
+}
+
+.timer-text span {
+    box-sizing: border-box;
+    margin: 0vmin 0vmin 0vmin 2.2vmin;
+    height: 5vmin;
+    width: 5.5vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 1 0 0px 0px; */
+    outline-style: none;
+    font-weight: 600;
+    font-size: 2.5vmin;
+    color: #000000;
+    /* border-left: 5px solid rgb(255, 11, 11) ; */
+    padding-left: 0px;
+}
+
+.hide {
+    display: none;
+}
