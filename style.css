@@ -1,6 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-*{
+:root{
+    --main-bg-color: #3b5cff;
+    --box-color: white;
+    --quiz-header-color: #3b5cff;
+    --quiz-header-Bg-color: var(--box-color);
+    --question-color: #47238d;
+    --label-bg-color:#c490ff;
+    --label-text-color:white;
+    --label-font-weight: 650;
+
+    --btn-color: #47238d;
+    --btn-color-onHover: #c490ff;
+    --intro-text-color:black;
+
+}
+
+* {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -11,20 +27,49 @@ body {
 }
 
 .main {
-    background-color: #C780FA;
+    background-color: var(--main-bg-color);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+
+/* Game - page - first Page CSS */
+
+.info-head {
+    font-weight: 700;
+    font-size: 4.5vmin;
+    padding: 2vmin 0vmin 0 2.5vmin;
+    border-bottom: 4px solid black;
+    color: var(--question-color);
+}
+
+.info-list-item {
+    list-style: inside;
+    font-weight: 500;
+    font-size: 2.6vmin;
+}
+
+ul {
+    margin: 4vw 0;
+    padding-right: 2vw;
+    padding-left: 2.8vw;
+}
+
+ul li {
+    margin-bottom: 2.2vmin;
+    color: var(--intro-text-color);
+}
+
+/*  Quiz App  >>>> css below*/
+
 .box {
-    background-color: #fff7df;
+    background-color: var(--box-color);
     border-radius: 22px;
-    padding: 0rem 0rem 2rem 0rem;
-    margin: 0rem 1rem;
-    width: 50vw;
-    max-height: 95vh;
+    padding: 0rem 0rem 4vw 0rem;
+    width: 80vw;
+    transform: scale(0.9);
 
     /* shadow */
     box-shadow: 5px 2px 15px rgb(40 20 149 / 71%);
@@ -34,59 +79,58 @@ body {
 
 h2 {
     text-align: center;
-    margin-top: 25px;
-    margin-bottom: 30px;
+    margin: 4vw 0;
+    font-size: 38px;
+    padding: 0 4vw;
+    color: var(--question-color);
 }
 
 
 .btn {
-    background-color: #C780FA;
+    background-color: var(--btn-color);
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
-    width: 20%;
-    border-radius: 10px;
+    height: 6vmin;
+    border-radius: 50px;
     color: white;
     font-weight: bold;
-    font-size: 18px;
-
+    font-size: 2.4vmin;
     border: none;
     outline-style: none;
-
-    margin-top: 40px;
+    margin-top: 5.5vw;
     cursor: pointer;
-    width: 6.5rem;
+    width: 17vmin;
+    transform: scale(1.2);
+    transition: all 0.4s;
 }
 
 .showScore {
     background-color: #48f96e;
-    width: 34rem;
     height: 6rem;
-    /* margin-top: 4rem; */
     margin: 1rem auto 0px auto;
-    /* display: flex; */
     display: none;
     align-items: center;
     border-radius: 4px;
     flex-direction: column;
     padding-top: 1.5rem;
-
     font-weight: 600;
+    margin: 0 2.5vw;
 }
 
 
 .playagain {
-    margin-top: 0.9rem;
+    margin-top: 1rem;
     display: flex;
     background-color: #C780FA;
-    height: 31px;
-    width: 91px;
+    height: 35px;
+    width: 96px;
     border-radius: 2px;
     color: white;
     border-style: none;
     outline-style: none;
+    padding: 0px 4px;
 
     justify-content: center;
     align-items: center;
@@ -102,20 +146,20 @@ input[type="radio"] {
 }
 
 div label {
-    /* font-family: f; */
-    color: white;
-    font-weight: 700;
+    color: var(--label-text-color);
+    font-weight: var(--label-font-weight);
     border-radius: 50px;
     cursor: pointer;
     max-width: 42vw;
-    height: 2rem;
-    padding: 1rem 0rem 1rem 2rem;
+    padding: 2vh 0rem 2vh 4vw;
     margin: 20px auto;
     display: flex;
-    /* display: inline-block; */
     align-items: center;
-    background-color: #f43c3c;
-   
+    background-color: var(--label-bg-color);
+    min-width: 85%;
+    box-sizing: border-box;
+    font-size: 1.5vmax;
+
 }
 
 input[type="radio"]:checked+label {
@@ -124,8 +168,8 @@ input[type="radio"]:checked+label {
 }
 
 .btn:hover {
-    background-color: #9407f9;
-    width: 24%;
+    background-color: var(--btn-color-onHover);
+    transform: scale(1);
 }
 
 .btn:active {
@@ -134,7 +178,7 @@ input[type="radio"]:checked+label {
 }
 
 .rightc {
-    background-color: rgb(110, 238, 19);
+    background-color: yellow;
     transform: scale(1.025);
 }
 
@@ -145,42 +189,167 @@ input[type="radio"]:checked+label {
 }
 
 /* header styling */
-.header{
+.header {
     height: 10vh;
-    width: 50vw;
     box-sizing: border-box;
-    padding: 1vmin 2.5vmin;
-    background-color: #ffffff;
+    padding: 1vmin 2.5vmin 1vmin 4vmin;
+    background-color: var(--quiz-header-Bg-color);
     justify-content: space-between;
     display: flex;
     align-items: center;
     border-radius: 22px 22px 0px 0px;
-    font-weight: 700;
-    font-size: 20px;
-    color: #1000ff
+    font-weight: 800;
+    font-size: 4vmin;
+    color: var(--quiz-header-color);
+
+    box-shadow: 0px 2.5px 4px 0.5px rgb(0 0 0 / 25%);
+}
+
+@media (max-width:1000px) {
+    h2{
+        text-align: center;
+        margin-top: 4vw;
+        font-size: 3vmax;
+        padding: 0 4vw;
+    }  
+    
+    .box{
+        transform: scale(1);
+    }
+
+    .info-list-item {
+        
+        font-size: 2vmin;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .header {
+        height: 7.6vh;
+        border-radius: 12px 12px 0px 0px;
+    }
+
+    .box {
+        border-radius: 12px;
+    }
+
+    .btn {
+        width: 12vmax;
+        font-size: 1.7vmax;
+        height: 7vmin;
+    }
+
+    ul li {
+        margin-bottom: 1.7vw;
+    }
+
+    h2 {
+        font-size: 3.4vw;
+    }
+
+    div label {
+        padding: 2vw 4vw;
+        font-size: 2.5vw;
+        margin: 2.8vw auto;
+    }
+}
+
+@media(max-width:400px) {
+
+    .header {
+        padding: 1vmin 3.5vmin 1vmin 4vmin;
+        font-size: 11px;
+        height: 6vh;
+        border-radius: 12px 12px 0px 0px;
+    }
+
+    .box {
+        border-radius: 12px;
+    }
+
+    .btn {
+        width: 22vmin;
+        font-size: 3vmin;
+        height: 7vmin;
+    }
+
+    h2 {
+        font-size: 3.2vw;
+    }
+
+    .showScore {
+        font-size: 14px;
+        height: 4.6rem;
+    }
+
+    .playagain {
+        margin-top: 4px;
+        transform: scale(0.8);
+    }
 
 }
 
-.timer-text{
+@media(max-width:270px) {
+
+    .header {
+        padding: 1vmin 4vmin 1vmin 4vmin;
+        font-size: 8px;
+        height: 4vh;
+        border-radius: 9px 9px 0px 0px;
+    }
+
+    .box {
+        border-radius: 9px;
+    }
+
+    .btn {
+        width: 20vmin;
+        font-size: 2.8vmin;
+        height: 6vmin;
+    }
+
+    .showScore {
+        font-size: 10.5px;
+        height: 3.5rem;
+        padding-top: 10px;
+    }
+
+    .playagain {
+        margin-top: 1px;
+        transform: scale(0.6);
+    }
+
+}
+
+@media (max-width:199px) {
+    .btn{
+        font-size: 2.4vmin;
+        width: 22vw;
+    }
+}
+
+
+.timer-text {
     padding: 0vmin 0vmin 0vmin 1.5vmin;
     display: flex;
     box-sizing: border-box;
-    box-shadow:2px 2px 6px 2px rgb(142 150 111 / 37%);
+    box-shadow: 2px 2px 6px 2px rgb(142 150 111 / 37%);
     outline-style: none;
     border-style: none;
     height: 5vmin;
-    width: 24vmin;
+    width: 18vmin;
     justify-content: flex-start;
     align-items: center;
     border-radius: 5px;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 2.5vmin;
     color: #000000;
 }
 
-.timer-text span{
+.timer-text span {
     box-sizing: border-box;
-    margin: 0vmin 0vmin 0vmin 11vmin;
+    margin: 0vmin 0vmin 0vmin 2.2vmin;
     height: 5vmin;
     width: 5.5vmin;
     display: flex;
@@ -189,8 +358,12 @@ input[type="radio"]:checked+label {
     /* border-radius: 1 0 0px 0px; */
     outline-style: none;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 2.5vmin;
     color: #000000;
     /* border-left: 5px solid rgb(255, 11, 11) ; */
     padding-left: 0px;
+}
+
+.hide {
+    display: none;
 }
